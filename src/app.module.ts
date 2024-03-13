@@ -13,18 +13,18 @@ import { DiagramModule } from './diagram/diagram.module';
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: 'root',
+      type: (process.env.DB_TYPE as 'mysql') || 'mysql',
+      host: process.env.DB_HOST || 'localhost',
+      port: +process.env.DB_PORT || 3306,
+      username: process.env.DB_USER || 'root',
+      password: process.env.DB_PASS || 'root',
       entities: [User],
-      database: 'flow-zapp',
+      database: process.env.DB_NAME || 'flow-zapp',
       synchronize: true,
       logging: true,
     }),
-    ConfigModule.forRoot(),
     AuthModule,
     UsersModule,
     NumbersModule,
