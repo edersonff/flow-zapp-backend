@@ -5,11 +5,15 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
-import { User } from './users/entities/user.entity';
 import { NumbersModule } from './numbers/numbers.module';
 import { LogsModule } from './logs/logs.module';
 import { FlowModule } from './flow/flow.module';
 import { DiagramModule } from './diagram/diagram.module';
+import { User } from './users/entities/user.entity';
+import { Diagram } from './diagram/entities/diagram.entity';
+import { Flow } from './flow/entities/flow.entity';
+import { Log } from './logs/entities/log.entity';
+import { NumberEntity } from './numbers/entities/number.entity';
 
 @Module({
   imports: [
@@ -20,7 +24,7 @@ import { DiagramModule } from './diagram/diagram.module';
       port: +process.env.DB_PORT || 3306,
       username: process.env.DB_USER || 'root',
       password: process.env.DB_PASS || 'root',
-      entities: [User],
+      entities: [User, Diagram, Flow, Log, NumberEntity],
       database: process.env.DB_NAME || 'flow-zapp',
       synchronize: true,
       logging: true,
