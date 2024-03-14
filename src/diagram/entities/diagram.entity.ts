@@ -6,10 +6,10 @@ export class Diagram {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'tinyint' })
+  @Column({ type: 'smallint' })
   step: number;
 
-  @Column({ type: 'tinyint', nullable: true })
+  @Column({ type: 'smallint', nullable: true })
   type?: number;
 
   @Column({ type: 'json' })
