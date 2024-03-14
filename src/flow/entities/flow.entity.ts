@@ -1,4 +1,5 @@
 import { Diagram } from 'src/diagram/entities/diagram.entity';
+import { Job } from 'src/jobs/entities/job.entity';
 import { User } from 'src/users/entities/user.entity';
 import {
   Column,
@@ -36,4 +37,7 @@ export class Flow {
 
   @ManyToOne(() => User, (user) => user.flows)
   user: User;
+
+  @OneToMany(() => Job, (job) => job.flows)
+  jobs: Job[];
 }

@@ -31,20 +31,8 @@ export class DiagramController {
 
     let wrongFormat = false;
 
-    // Timer
-    if (type === 1) {
-      const isTypeString = typeof options.type === 'string';
-      const isStartDate = typeof options.startDate === 'string';
-      const isTime = typeof options.time === 'number';
-      const isRepeat = typeof options.repeat === 'boolean';
-
-      if (!isTypeString || !isStartDate || !isTime || !isRepeat) {
-        wrongFormat = true;
-      }
-    }
-
     // Get parameters
-    if (type === 2) {
+    if (type === 1) {
       const isKeysString = typeof options.keys === 'string';
 
       if (!isKeysString) {
@@ -53,7 +41,7 @@ export class DiagramController {
     }
 
     // Conditional
-    if (type === 3) {
+    if (type === 2) {
       const isCondition = typeof options.condition === 'function';
       const isTrueStep = typeof options.trueStep === 'number';
       const isFalseStep = typeof options.falseStep === 'number';
@@ -64,7 +52,7 @@ export class DiagramController {
     }
 
     // Each
-    if (type === 4) {
+    if (type === 3) {
       const isEachStep = typeof options.eachStep === 'number';
       const isEachType = typeof options.eachType === 'number';
 
@@ -74,7 +62,7 @@ export class DiagramController {
     }
 
     // Message
-    if (type === 5) {
+    if (type === 4) {
       const isMessage = typeof options.message === 'string';
       const isAttachments = Array.isArray(options.attachments);
       const isTo = Array.isArray(options.to);

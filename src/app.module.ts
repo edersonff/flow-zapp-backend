@@ -14,6 +14,7 @@ import { Diagram } from './diagram/entities/diagram.entity';
 import { Flow } from './flow/entities/flow.entity';
 import { Log } from './logs/entities/log.entity';
 import { NumberEntity } from './numbers/entities/number.entity';
+import { JobsModule } from './jobs/jobs.module';
 
 @Module({
   imports: [
@@ -26,7 +27,7 @@ import { NumberEntity } from './numbers/entities/number.entity';
       password: process.env.DB_PASS || 'root',
       entities: [User, Diagram, Flow, Log, NumberEntity],
       database: process.env.DB_NAME || 'flow-zapp',
-      synchronize: true,
+      synchronize: false,
       logging: true,
     }),
     AuthModule,
@@ -35,6 +36,7 @@ import { NumberEntity } from './numbers/entities/number.entity';
     LogsModule,
     FlowModule,
     DiagramModule,
+    JobsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
