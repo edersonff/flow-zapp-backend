@@ -10,7 +10,7 @@ export class Job {
   @Column({ type: 'enum', enum: ['minute', 'weekly', 'monthly'] })
   type?: 'minute' | 'weekly' | 'monthly';
 
-  @Column({ type: 'datetime', nullable: true })
+  @Column({ type: 'timestamp', nullable: true })
   date?: Date;
 
   @Column({ type: 'int', nullable: true })

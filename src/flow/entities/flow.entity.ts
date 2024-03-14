@@ -26,7 +26,7 @@ export class Flow {
   @Column({ type: 'text', nullable: true })
   description?: string;
 
-  @Column({ type: 'datetime', nullable: true })
+  @Column({ type: 'timestamp', nullable: true })
   lastRun?: Date;
 
   @Column({ type: 'enum' })
