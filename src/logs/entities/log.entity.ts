@@ -9,7 +9,7 @@ export class Log {
   @Column({ type: 'varchar', length: 30 })
   label: string;
 
-  @Column({ type: 'enum' })
+  @Column({ type: 'enum', enum: ['info', 'warning', 'error'] })
   type: 'info' | 'warning' | 'error';
 
   @Column({ type: 'json' })

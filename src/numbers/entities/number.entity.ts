@@ -17,7 +17,10 @@ export class NumberEntity {
   @Column({ type: 'varchar', length: 97, nullable: true })
   session?: string;
 
-  @Column({ type: 'enum' })
+  @Column({
+    type: 'enum',
+    enum: ['draft', 'disconnected', 'connected', 'error'],
+  })
   status: 'draft' | 'disconnected' | 'connected' | 'error';
 
   @ManyToOne(() => User, (user) => user.numbers)

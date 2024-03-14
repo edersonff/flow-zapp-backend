@@ -29,7 +29,7 @@ export class Flow {
   @Column({ type: 'timestamp', nullable: true })
   lastRun?: Date;
 
-  @Column({ type: 'enum' })
+  @Column({ type: 'enum', enum: ['draft', 'running', 'stopped', 'error'] })
   status: 'draft' | 'running' | 'stopped' | 'error';
 
   @OneToMany(() => Diagram, (diagram) => diagram.flow)
