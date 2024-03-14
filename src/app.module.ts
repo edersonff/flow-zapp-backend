@@ -30,6 +30,7 @@ import { Job } from './jobs/entities/job.entity';
       database: process.env.DB_NAME || 'flow-zapp',
       synchronize: false,
       logging: true,
+      ssl: true,
     }),
     AuthModule,
     UsersModule,
