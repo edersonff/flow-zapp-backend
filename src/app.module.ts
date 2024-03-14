@@ -15,6 +15,7 @@ import { Flow } from './flow/entities/flow.entity';
 import { Log } from './logs/entities/log.entity';
 import { NumberEntity } from './numbers/entities/number.entity';
 import { JobsModule } from './jobs/jobs.module';
+import { Job } from './jobs/entities/job.entity';
 
 @Module({
   imports: [
@@ -25,7 +26,7 @@ import { JobsModule } from './jobs/jobs.module';
       port: +process.env.DB_PORT || 3306,
       username: process.env.DB_USER || 'root',
       password: process.env.DB_PASS || 'root',
-      entities: [User, Diagram, Flow, Log, NumberEntity],
+      entities: [User, Diagram, Flow, Job, Log, NumberEntity],
       database: process.env.DB_NAME || 'flow-zapp',
       synchronize: false,
       logging: true,
